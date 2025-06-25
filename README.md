@@ -214,11 +214,4 @@ debug: マイコンのprintfを有効化, MD: モータードライバー, TR: �
 
 ---
 
-## 12. 🌟 Powered by
-
-2024年度**立命館大学ロボット技術研究会 NHKプロジェクト**  
-2024 NHK Project, RRST, Ritsumeikan University
-
-![Logo](https://www.rrst.jp/img/logo.png)
-
 ---
