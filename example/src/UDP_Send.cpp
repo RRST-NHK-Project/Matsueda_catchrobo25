@@ -64,7 +64,7 @@ private:
 
         data[3] = 40 * R2; // １番に20を代入4
         data[4] = -20 * R2;
-        date[7] = 70 *L2;
+        data[7] = 70 *R2;
         udp_.send(data);   // データ送信
     }
 
