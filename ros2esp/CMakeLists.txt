@@ -21,11 +21,23 @@ ament_target_dependencies(mros_wip rclcpp std_msgs sensor_msgs)
 add_executable(mb_tester src/MB_TESTER.cpp)
 ament_target_dependencies(mb_tester rclcpp std_msgs sensor_msgs)
 
+add_executable(esp src/esp.cpp)
+ament_target_dependencies(esp rclcpp std_msgs sensor_msgs)
+
+add_executable(nr25_mrs src/NR25_MR_SwerveDrive.cpp)
+ament_target_dependencies(nr25_mr rclcpp std_msgs sensor_msgs)
+
+add_executable(ps4listener src/ps4listener.cpp)
+ament_target_dependencies(ps4listener rclcpp std_msgs sensor_msgs)
+
 
 # インストール設定
 install(TARGETS
   mros_wip
   mb_tester
+  esp
+  nr25_mr
+  ps4listener
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
