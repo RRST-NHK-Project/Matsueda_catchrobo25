@@ -7,9 +7,12 @@
 // ROS
 #include "rclcpp/rclcpp.hpp"
 #include "sensor_msgs/msg/joy.hpp"
+#include "std_msgs/msg/int16_multi_array.hpp"
 
-class PS4_Listener : public rclcpp::Node {
-
+class PS4Listener : public rclcpp::Node {
+    rclcpp::Publisher<std_msgs::msg::Int16MultiArray>::SharedPtr publisher_;
+    rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr subscription_;
+   
     void joy_callback(const sensor_msgs::msg::Joy::SharedPtr msg) {
     std_msgs::msg::Int16MultiArray output;
 // int16_t型の配列を用意
@@ -76,3 +79,4 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
+}
