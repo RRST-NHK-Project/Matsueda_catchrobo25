@@ -8,6 +8,10 @@
 #include "rclcpp/rclcpp.hpp"
 #include "sensor_msgs/msg/joy.hpp"
 
+class PS4_Listener : public rclcpp::Node {
+
+    void joy_callback(const sensor_msgs::msg::Joy::SharedPtr msg) {
+    std_msgs::msg::Int16MultiArray output;
 // int16_t型の配列を用意
 int16_t data[19] = {0};
 //0〜３モタドラ　４〜７サーボ　８〜１５ＳＶ　１６〜１９enc
@@ -45,12 +49,16 @@ int16_t data[19] = {0};
 data[4] = R2 * 255;
 data[5] = L2 * 255;
 
-data[0] = LS
+data[0] = LS_Y
+date[1] = RS_X
 
 
-        motor1 = msg->data[0];
-        motor2 = msg->data[1];
-        motor3 = msg->data[2];
-        motor4 = msg->data[3];
+       
+   // publish 用にコピー
+    for (int i = 0; i < 6; ++i) {
+        output.data.push_back(data[i]);
+    }
 
+    publisher->publish(output);
+}
 
