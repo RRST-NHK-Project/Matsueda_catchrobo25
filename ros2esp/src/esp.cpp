@@ -62,3 +62,17 @@ date[1] = RS_X
     publisher->publish(output);
 }
 
+int main(int argc, char *argv[]) {
+    rclcpp::init(argc, argv);
+    auto node = rclcpp::Node::make_shared("simple_motor_pub");
+
+    publisher = node->create_publisher<std_msgs::msg::Int16MultiArray>("motordata", 10);
+
+    auto sub = node->create_subscription<sensor_msgs::msg::Joy>(
+        "joy", 10, joy_callback);
+
+    rclcpp::spin(node);
+    rclcpp::shutdown();
+    return 0;
+}
+
